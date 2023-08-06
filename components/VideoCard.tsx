@@ -88,12 +88,12 @@ const VideoCard : NextPage<IProps>= ({post}) => {
                         </button>
                      )}
                       {isVideoMuted ? (
-                       <button> 
+                       <button onClick={() => setIsVideoMuted(false)}> 
                         <HiVolumeOff className='text-block text-2xl lg:text-4xl'/>
                        </button>
                      ) : (
-                        <button>
-                          <HiVolumeOff />
+                        <button onClick={() => setIsVideoMuted(true)}>
+                          <HiVolumeUp />
                         </button>
                      )}
                    </div>
