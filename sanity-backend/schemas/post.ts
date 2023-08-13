@@ -30,8 +30,8 @@ export default defineType({
       type:'postedBy',
     }),
     defineField({
-      name:"like",
-        title: 'Like',
+      name:"likes",
+        title: 'Likes',
         type:'array',
         of:[
             {
@@ -46,10 +46,10 @@ export default defineType({
         type:'array',
         of:[{type: 'comment'}],
     }),
-    defineField({
-      name:'topic',
-      title:'Topic',
-      type:'string',
-  })
+  //   defineField({
+  //     name:'topic',
+  //     title:'Topic',
+  //     type:'string',
+  // })
   ],
 })

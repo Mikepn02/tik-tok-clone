@@ -9,7 +9,7 @@ import { IoMdAdd } from 'react-icons/io'
 import Logo from '../utils/tiktik-logo.png'
 import { createOrGetUser } from '../utils'
 const Navbar = () => {
-  const user = true
+  const user = false
   return (
     <div className='w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-4'>
       <Link href='/'>
@@ -24,7 +24,7 @@ const Navbar = () => {
         </div>
       </Link>
       <div>Search</div>
-      {/* <div>
+      <div>
         {user ? (
           <div>Loggend In</div>
         ): (
@@ -34,7 +34,7 @@ const Navbar = () => {
         />
         
         )}
-      </div> */}
+      </div>
     </div>
   )
 }

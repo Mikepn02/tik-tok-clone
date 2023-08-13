@@ -16,7 +16,7 @@ export const allPostsQuery = () => {
       },
     likes,
     comments[]{
-      comment,
+      comments,
       _key,
       postedBy->{
       _id,
