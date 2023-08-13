@@ -15,7 +15,15 @@ export default async function handler(
       console.error("Error fetching data from Sanity:", error);
       res.status(500).json({ error: "Internal Server Error" });
     }
-  } else {
+  }else if(req.method === 'POST'){
+    const document = req.body
+
+    client.create(document)
+      .then(() => res.status(201).json('video created'))
+  }
+  
+  
+  else {
     res.status(405).json({ error: "Method Not Allowed" });
   }
 }
