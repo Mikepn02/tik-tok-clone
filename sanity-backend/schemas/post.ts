@@ -46,10 +46,10 @@ export default defineType({
         type:'array',
         of:[{type: 'comment'}],
     }),
-  //   defineField({
-  //     name:'topic',
-  //     title:'Topic',
-  //     type:'string',
-  // })
+    defineField({
+      name:'topic',
+      title:'Topic',
+      type:'string',
+  })
   ],
 })

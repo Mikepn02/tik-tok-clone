@@ -53,12 +53,12 @@ const Upload = () => {
                 },
                 userId: userProfile?._id,
                 postedBy: {
-                    type: 'postedBy',
+                    _type: 'postedBy',
                     _ref: userProfile?._id
                 },
                 topic: category
             }
-            axios.post(`http://localhost:300/api/post`, document)
+            axios.post(`http://localhost:3000/api/post`, document)
 
             router.push('/')
 

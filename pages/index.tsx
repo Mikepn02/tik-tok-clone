@@ -2,6 +2,7 @@ import axios from "axios";
 import { Video } from "../types";
 import NoResults from "../components/NoResults";
 import VideoCard from "../components/VideoCard";
+import { BASE_URL } from "../utils";
 
 
 
@@ -22,11 +23,12 @@ const Home = ({videos} : IProps) => {
             <NoResults  text={'No videos'}/>
            )}
      </div>
+
   );
 };
 
 export const getServerSideProps = async () => {
-   const {data} = await axios.get(`http://localhost:3000/api/post`)
+   const {data} = await axios.get(`${BASE_URL}/api/post`)
 
 
    return {
