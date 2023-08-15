@@ -15,12 +15,11 @@ const Search = ({ videos }: { videos: Video[] }) => {
  const {allUsers} = useAuthStore()
   const [isAccounts, setIsAccounts] = useState(false);
   const router = useRouter();
-  const { searchTerm } : any= router.query;
+  const { searchTerm } : any = router.query;
   const accounts = isAccounts ? 'border-b-2 border-black' : 'text-gray-400';
   const isVideo = !isAccounts ? 'border-b-2 border-black' : 'text-gray-400';
   const seachedAccounts =  allUsers.filter((user: IUser) => user.userName.toLowerCase().includes(searchTerm.toLowerCase()))
 
-  console.log(videos);
 
   return (
     <div className='w-full'>
@@ -39,17 +38,47 @@ const Search = ({ videos }: { videos: Video[] }) => {
         </p>
       </div>
       {isAccounts ? (
-        <div className='md:mt-16'>Accounts</div>
-      ) : (
-        <div className='md:mt-16 flex flex-wrap gap-6 md:justify-start'>
-          {videos.length ? (
-            videos.map((video: Video, idx: number) => (
-              <VideoCard post={video} key={idx} />
-            ))
-          ) : (
+        <div className='md:mt-16'>
+          {seachedAccounts.length > 0 ? (
+               seachedAccounts.map((user:IUser,idx:number) => (
+                <Link href={`/profile/${user._id }`} key={idx}>
+
+                <div className='flex p-2 cursor-pointer rounded font-semibold border-b-2 border-gray-200 gap-3' >
+                  <div>
+                    <Image
+                      src={user.image}
+                      width={50}
+                      height={50}
+                      className='rounded-full'
+                      alt='user-profile'
+                    />
+                  </div>
+
+                  <div className='hidden xl:block'>
+                    <p className='flex gap-1 items-center text-md font-bold text-primary lowercase'>{user.userName.replaceAll(' ', '')}
+                      <GoVerified className='text-blue-400' />
+                    </p>
+                    <p className='capitalize text-gray-400 text-xs'>
+                      {user.userName}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+               ))
+          ): (
             <NoResults text={`No video result for ${searchTerm}`} />
           )}
         </div>
+      ) : (
+        <div className='md:mt-16 flex flex-wrap gap-6 md:justify-start '>
+        {videos.length ? (
+          videos.map((post: Video, idx: number) => (
+            <VideoCard post={post} key={idx} />
+          ))
+        ) : (
+          <NoResults text={`No Video Results for ${searchTerm}`} />
+        )}
+      </div>
       )}
     </div>
   );

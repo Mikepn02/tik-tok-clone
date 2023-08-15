@@ -57,7 +57,7 @@ const Profile = ({ data }: IProps) => {
           <p className={`text-xl font-semibold cursor-pointer mt-2 ${videos}`} onClick={() =>setShowUserVideos(true)}>Videos</p>
           <p className={`text-xl font-semibold cursor-pointer mt-2 ${liked}`} onClick={() =>setShowUserVideos(false)}>Liked</p>
       </div>
-      <div className='flex gap-6 flex-wrap md:justify-start'>
+      <div className='flex flex-col gap-6 flex-wrap md:justify-start'>
             {videosList.length > 0 ? (
               videosList.map((post: Video , idx: number) => (
                  <VideoCard post={post} key={idx}/>

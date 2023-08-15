@@ -9,8 +9,8 @@ export default async function handler(
 ) {
   if (req.method === "GET") {
     try {
-      const {searchTerm}: any = req.query
-      const videosQuery = searchPostsQuery(searchTerm)
+      const {id}: any = req.query
+      const videosQuery = searchPostsQuery(id)
       const videos = await client.fetch(videosQuery)
      res.status(200).json(videos)
 
